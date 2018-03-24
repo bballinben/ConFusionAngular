@@ -6,12 +6,13 @@ import { HomeComponent } from '../home/home.component';
 import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
 import { DishDetailsComponent } from '../dish-details/dish-details.component';
+import { LeadersService } from '../services/leaders.service'
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'menu',     component: MenuComponent },
+  { path: 'about',     component: AboutComponent },
   { path: 'contactus',     component: ContactComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'dishdetail/:id',     component: DishDetailsComponent },
-
+  { path: 'dishdetail/:id',     component: DishDetailsComponent }
 ];
