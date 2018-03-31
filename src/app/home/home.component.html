@@ -42,5 +42,15 @@
       </md-card-content>
     </md-card>
   
+    <div [hidden]="dish">
+      <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+    <div [hidden]="promotion">
+      <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+    <div [hidden]="leader">
+      <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+
   </div>
   
