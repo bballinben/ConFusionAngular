@@ -4,12 +4,15 @@ import { MenuComponent } from '../menu/menu.component';
 import { DatePipe } from '@angular/common';
 import { DishService } from '../services/dish.service';
 import { Comment } from '../../shared/comment';
+import { ProcessHttpmsgService } from '../services/process-httpmsg.service';
 
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+
 import 'rxjs/add/operator/switchMap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-dish-details',
@@ -48,21 +51,24 @@ export class DishDetailsComponent implements OnInit {
   dishIds: number[];
   prev: number;
   next: number;
+  errMess: string;
 
   constructor(private dishservice: DishService,
     @Inject('BaseURL') private BaseURL,
     private route: ActivatedRoute,
     private location: Location,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private ProcessHttpmsgService: ProcessHttpmsgService) {
       this.createForm();
      }
 
   ngOnInit() {
     
-    this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
+    this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds, errmess => this.errMess = <any>errmess );
     this.route.params
       .switchMap((params: Params) => this.dishservice.getDish(+params['id']))
       .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+      
   }
 
   createForm() {
