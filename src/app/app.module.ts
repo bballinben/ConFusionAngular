@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 import  'hammerjs';
  
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { ContactComponent } from './contact/contact.component';
 import { DishService } from './services/dish.service';
 import { LeadersService } from './services/leaders.service';
 import { PromotionService } from './services/promotion.service';
+import { baseURL } from '../shared/baseurl';
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
 
 
 
@@ -37,7 +40,7 @@ import { LoginComponent } from './login/login.component';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
 
   ],
   imports: [
@@ -53,7 +56,9 @@ import { LoginComponent } from './login/login.component';
   entryComponents: [
     LoginComponent
   ],
-  providers: [DishService, PromotionService, LeadersService],
+  providers: [DishService, PromotionService, LeadersService, ProcessHttpmsgService,
+  { provide: 'BaseURL', useValue: baseURL }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

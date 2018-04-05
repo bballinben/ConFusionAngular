@@ -21,7 +21,7 @@ leaders: leader[];
   ngOnInit() {
 
     this.LeadersService.getLeaders()
-      .then(leaders => this.leaders = LEADERS);
+      .subscribe(leaders => this.leaders = LEADERS);
   }
 
 }
