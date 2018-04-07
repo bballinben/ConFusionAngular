@@ -52,7 +52,7 @@
    </div>
 
    <h2>Corporate Leadership</h2>
-  <div fxFlex>
+  <div fxFlex [@expand]>
       <md-list *ngFor="let leader of leaders">
            <img height="100px" class="img-circle" src={{leader.image}} alt={{leader.name}}>
             <div class="md-list-item-text">
