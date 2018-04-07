@@ -31,6 +31,7 @@ import { RestangularConfigFactory } from '../shared/restConfig';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { HighlightDirective } from './directives/highlight.directive';
  
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     ContactComponent,
     LoginComponent,
+    HighlightDirective,
 
   ],
   imports: [
