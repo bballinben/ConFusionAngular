@@ -25,6 +25,8 @@ import { PromotionService } from './services/promotion.service';
 import { baseURL } from '../shared/baseurl';
 import { ProcessHttpmsgService } from './services/process-httpmsg.service';
 
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from '../shared/restConfig';
 
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -51,7 +53,8 @@ import { LoginComponent } from './login/login.component';
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
   ],
   entryComponents: [
     LoginComponent
